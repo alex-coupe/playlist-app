@@ -1,14 +1,23 @@
 import React from 'react'
+import {ThemeContext} from './../contexts/ThemeContext';
 
 export default function Playlist() {
+
     return (
-        <div>
-            <h3>Madchester Playlist</h3>
-            <ul>
-                <li>Waterfall - The Stone Roses</li>
-                <li>Liver Forever - Oasis</li>
-                <li>Step On - The Happy Mondays</li>
-            </ul>
-        </div>
-    )
+        <ThemeContext.Consumer>
+            {(context) => {
+            const theme = context.isLightTheme ? context.light : context.dark;
+            return (
+            <div className="playlist" style={{background: theme.bg, color: theme.text }}>
+                <h3>My Cool Playlist</h3>
+                <ul>
+                    <li style={{background: theme.ui}}>Waterfall - The Stone Roses</li>
+                    <li style={{background: theme.ui}}>Liver Forever - Oasis</li>
+                    <li style={{background: theme.ui}}>Step On - The Happy Mondays</li>
+                </ul>
+            </div>)
+        }}
+        </ThemeContext.Consumer>
+    );
+    
 }
