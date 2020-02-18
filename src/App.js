@@ -4,14 +4,17 @@ import Navbar from './components/Navbar';
 import Playlist from './components/Playlist';
 import ThemeContextProvider from './contexts/ThemeContext';
 import ThemeToggle from './components/ThemeToggle';
+import LockedContextProvider from './contexts/LockedContext';
 
 function App() {
   return (
     <div className="App">
       <ThemeContextProvider>
-        <Navbar />
-        <Playlist />
-        <ThemeToggle />
+        <LockedContextProvider>
+          <Navbar />
+          <Playlist />
+          <ThemeToggle />
+        </LockedContextProvider>
       </ThemeContextProvider>
     </div>
   );
