@@ -5,7 +5,8 @@ export default function Navbar() {
     return (
         <ThemeContext.Consumer>
             {(context) => {
-            const theme = context.isLightTheme ? context.light : context.dark;
+            const {isLightTheme, light, dark} = context.state;
+            const theme = isLightTheme ? light : dark;
             return (
         <div>
             <nav style={{background: theme.ui, color: theme.text }}>

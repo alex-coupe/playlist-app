@@ -6,7 +6,8 @@ export default function Playlist() {
     return (
         <ThemeContext.Consumer>
             {(context) => {
-            const theme = context.isLightTheme ? context.light : context.dark;
+            const {isLightTheme, light, dark} = context.state;
+            const theme = isLightTheme ? light : dark;
             return (
             <div className="playlist" style={{background: theme.bg, color: theme.text }}>
                 <h3>My Cool Playlist</h3>
